@@ -14,5 +14,6 @@ def compile(filename, args):
 			else:
 				code = code[:rec]+str((eval(code[rec+1:i])))+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
 				rec = -1
+				i -= i-rec
 		i+=1
 	return code
