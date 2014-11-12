@@ -69,6 +69,12 @@ class Comment:
     def reply(self, comment):
         return self.client.post_comment(self.message_id, comment)
 
+    def get_comment(self):
+        info = {}
+        info["likes"] = self.likes
+        info["text"] = self.comment.encode('utf-8')
+        return info
+
     def print_comment(self):
         my_action = ""
         if self.liked > 0:
@@ -134,7 +140,8 @@ class Yak:
             info["handle"] = self.handle
         else:
             info["handle"] = ""
-        info["text"] = self.message.encode('utf-8')
+        text = self.message.encode('utf-8')
+        info["text"] = text
         info["likes"] = self.likes
         info["comments"] = self.comments
         info["time"] = self.time
