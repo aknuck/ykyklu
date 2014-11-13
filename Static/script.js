@@ -14,6 +14,8 @@
     yakHandle = \$("#posts .panel-heading:eq(" + i + ")");
     yakText = \$("#posts .panel-body:eq(" + i + ")");
     yakScore = \$("#posts .yak-score:eq(" + i + ")");
+    yakTime = \$("#posts .time:eq(" + i + ")");
+    yakTime.text(argsList["yaks"][i]["time"]);
     yakHandle.text(argsList["yaks"][i]["handle"]);
     commentBubble.text(argsList["yaks"][i]["numberOfComments"]);
     yakScore.text(argsList["yaks"][i]["likes"]);
