@@ -5,9 +5,10 @@ def compile(filename, args):
 	recD = -1
 	recP = -1
 	i = 0
+	code.replace("$$$","var argsList = "+str(args).replace(": u\'",": \'")+"\n")
 	while i < len(code):
 
-		if code[i].isalnum() or code[i] == '%' or code[i] == "$":
+		if code[i] == '%' or code[i] == "$":
 			if code[i] == '%':
 				if i > 0 and code[i-1] == '\\':
 					code = code[:i-1]+code[i:]
@@ -23,15 +24,15 @@ def compile(filename, args):
 					code = code[:i-1]+code[i:]
 					i += 1
 					continue
-				elif code[i:i+3] == "$$$":
-					code = code[:i]+"var argsList = "+str(args).replace(": u\'",": \'")+"\n"+code[i+3:]
-					i += len(str(args))+len("\"var argsDict = \"")
+				#elif code[i:i+3] == "$$$":
+				#	code = code[:i]+"var argsList = "+str(args).replace(": u\'",": \'")+"\n"+code[i+3:]
+				#	i += len(str(args))+len("\"var argsDict = \"")
 				elif recD == -1:
 					recD = i
 				else:
-					increase = recD+len(str((eval(code[recD+1:i]))))
-					code = code[:recD]+str((eval(code[recD+1:i])))+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
-					i = increase
+					var = str((eval(code[recD+1:i])))
+					code = code[:recD]+var+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
+					i = irecD+len(var)
 					recD = -1
 					# add something to check for ' in the text of yaks and replace with \'. same for ""
 		i+=1

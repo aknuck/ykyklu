@@ -137,15 +137,15 @@ class Yak:
     def get_yak(self):
         info = {}
         if self.handle is not None:
-            info["handle"] = self.handle[2:]
+            info["handle"] = self.handle
         else:
             info["handle"] = ""
         text = self.message.encode('utf-8')
         info["text"] = text
         info["likes"] = self.likes
         info["comments"] = self.comments
-        info["time"] = self.time[2:]
-        info["id"] = self.message_id[2:]
+        info["time"] = self.time
+        info["id"] = self.message_id
         return info
 
     def print_yak(self):

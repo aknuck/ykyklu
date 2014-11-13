@@ -15,12 +15,11 @@ class hello:
 
 	def GET(self, name):
                 if name == "index" or name == "index.html" or name == "main" or name == "main.html" or not name:
-                        data = {"yaks":self.loadYaks(5),"numberOfYaks":5}
+                        data = {"yaks":self.loadYaks(6),"numberOfYaks":6}
                         for i in range(len(data["yaks"])):
                             data["yaks"][i]["comments"] = self.loadComments(data["yaks"][i]["id"])
-                            print data["yaks"][i]["comments"]
                             data["yaks"][i]["numberOfComments"] = len(data["yaks"][i]["comments"])
-                            print data["yaks"][i]["numberOfComments"]
+
                         return compile("index.html",data)
                 else:
                         return compile("blank.html",{})
@@ -30,18 +29,13 @@ class hello:
                 yaks = []
                 for i in range(num):
                         yaks.append(loadedYaks[i].get_yak())
-                        print yaks[i]["id"]
                 return yaks
 
         def loadComments(self,postID):
-            print "YO "+postID
             comments = []
-            print self.yakker.get_comments(postID[1:])
             commentsRaw = self.yakker.get_comments(postID[1:])
-            print commentsRaw
             for i in range(len(commentsRaw)):
                 comments.append(commentsRaw[i].get_comment())
-                print comments+"gs"
             return comments
     		
 
