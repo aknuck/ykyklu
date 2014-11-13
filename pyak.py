@@ -137,7 +137,7 @@ class Yak:
     def get_yak(self):
         info = {}
         if self.handle is not None:
-            info["handle"] = self.handle[2:]
+            info["handle"] = self.handle
         else:
             info["handle"] = ""
         text = self.message.encode('utf-8')

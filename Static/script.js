@@ -15,11 +15,11 @@
     yakText = \$("#posts .panel-body:eq(" + i + ")");
     yakScore = \$("#posts .yak-score:eq(" + i + ")");
     yakTime = \$("#posts .time:eq(" + i + ")");
-    yakTime.text(argsList["yaks"][i]["time"]);
-    yakHandle.text(argsList["yaks"][i]["handle"]);
-    commentBubble.text(argsList["yaks"][i]["numberOfComments"]);
-    yakScore.text(argsList["yaks"][i]["likes"]);
-    yakText.text(argsList["yaks"][i]["text"]);
+    yakTime.text(argsList["yaksHot"][i]["time"]);
+    yakHandle.text(argsList["yaksHot"][i]["handle"]);
+    commentBubble.text(argsList["yaksHot"][i]["numberOfComments"]);
+    yakScore.text(argsList["yaksHot"][i]["likes"]);
+    yakText.text(argsList["yaksHot"][i]["text"]);
   }
 
 

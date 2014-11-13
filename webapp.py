@@ -15,10 +15,14 @@ class hello:
 
 	def GET(self, name):
                 if name == "index" or name == "index.html" or name == "main" or name == "main.html" or not name:
-                        data = {"yaks":self.loadYaks(8),"numberOfYaks":8}
+                        n = 8
+                        data = {"yaks":self.loadYaks(n),"yaksHot":self.loadHotYaks(n),"numberOfYaks":n}
                         for i in range(len(data["yaks"])):
                             data["yaks"][i]["comments"] = self.loadComments(data["yaks"][i]["id"])
                             data["yaks"][i]["numberOfComments"] = len(data["yaks"][i]["comments"])
+                        for i in range(len(data["yaksHot"])):
+                            data["yaksHot"][i]["comments"] = self.loadComments(data["yaksHot"][i]["id"])
+                            data["yaksHot"][i]["numberOfComments"] = len(data["yaksHot"][i]["comments"])
 
                         return compile("index.html",data)
                 else:
@@ -27,6 +31,15 @@ class hello:
         #return a list of yaks of length equal to the parameter 'num'
         def loadYaks(self,num):
                 loadedYaks = self.yakker.get_yaks()
+                yaks = []
+                for i in range(num):
+                        yaks.append(loadedYaks[i].get_yak())
+                        yaks[i]["time"] = self.difTime(loadedYaks[i])
+                return yaks
+
+        #return a list of hot yaks of length equal to the parameter 'num'
+        def loadHotYaks(self,num):
+                loadedYaks = self.yakker.get_area_tops()
                 yaks = []
                 for i in range(num):
                         yaks.append(loadedYaks[i].get_yak())
