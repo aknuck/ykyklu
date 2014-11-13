@@ -18,7 +18,10 @@ class hello:
                         data = {"yaks":self.loadYaks(5),"numberOfYaks":5}
                         for i in range(len(data["yaks"])):
                             data["yaks"][i]["comments"] = self.loadComments(data["yaks"][i]["id"])
-                        return compile("main.html",data)
+                            print data["yaks"][i]["comments"]
+                            data["yaks"][i]["numberOfComments"] = len(data["yaks"][i]["comments"])
+                            print data["yaks"][i]["numberOfComments"]
+                        return compile("index.html",data)
                 else:
                         return compile("blank.html",{})
 
@@ -27,13 +30,18 @@ class hello:
                 yaks = []
                 for i in range(num):
                         yaks.append(loadedYaks[i].get_yak())
+                        print yaks[i]["id"]
                 return yaks
 
         def loadComments(self,postID):
+            print "YO "+postID
             comments = []
-            commentsRaw = self.yakker.get_comments(postID)
+            print self.yakker.get_comments(postID[1:])
+            commentsRaw = self.yakker.get_comments(postID[1:])
+            print commentsRaw
             for i in range(len(commentsRaw)):
                 comments.append(commentsRaw[i].get_comment())
+                print comments+"gs"
             return comments
     		
 

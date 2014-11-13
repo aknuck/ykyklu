@@ -1,0 +1,120 @@
+body {
+  background: #EDEDED;
+  font-size: 1.25em;
+}
+header {
+  background: #572D14;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  color: #FFF;
+  text-align: center;
+}
+
+nav ul {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+nav li {
+  padding: .5em 1.5em !important;
+  font-weight: bold;
+  background: rgba(127, 92, 79, .7);
+  color: white;
+  margin: .5em auto 1.5em;
+  text-transform: uppercase;
+
+}
+
+nav li:first-child {
+  -webkit-border-radius: 8px 0 0 8px;
+  border-radius: 8px 0 0 8px;
+}
+
+nav li:last-child {
+  -webkit-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
+
+}
+
+nav li:hover {
+  background: rgba(255, 255, 255, .20);
+}
+
+nav a, nav a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+#posts .row {
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+
+}
+
+#posts .panel {
+  margin-bottom: 0;
+}
+
+.time {
+  font-size: .75em;
+  margin-left: .75em;
+  font-style: italic;
+}
+
+.comment-num {
+  text-align: center;
+  margin-top: .75em;
+  padding: .25em .75em 1.5em .75em;
+  background: rgba(87, 45, 20, .85);
+  font-weight: bold;
+  color: #FFF;
+  width: 3em;
+  height: 1.5em;
+  font-size: 1.35em;
+  box-shadow: none;
+}
+
+.comment-num:hover, .comment-num:focus {
+  box-shadow: none;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+  margin-left: 3.25em;
+	border-top: 10px solid rgba(87, 45, 20, .85);
+}
+
+.votes {
+  text-align: center;
+  font-size: 1.4em;
+
+
+}
+
+.votes a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+#posts .row {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+}
+
+#posts .panel-body {
+  font-size: 1.25em;
+}
+
+#posts .panel {
+  box-shadow: none;
+  min-height: 6em;
+}
+
+#posts .panel-heading {
+  background: none;
+}

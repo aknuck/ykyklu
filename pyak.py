@@ -137,15 +137,15 @@ class Yak:
     def get_yak(self):
         info = {}
         if self.handle is not None:
-            info["handle"] = self.handle
+            info["handle"] = self.handle[2:]
         else:
             info["handle"] = ""
         text = self.message.encode('utf-8')
         info["text"] = text
         info["likes"] = self.likes
         info["comments"] = self.comments
-        info["time"] = self.time
-        info["id"] = self.message_id
+        info["time"] = self.time[2:]
+        info["id"] = self.message_id[2:]
         return info
 
     def print_yak(self):
@@ -518,13 +518,14 @@ class Yakker:
         }
         return self.get_yak_list("getPeekMessages", params)
 		
-	def peekLoc(self, location):
-		params = {
-			"lat": location.latitude,
-			"long": location.longitude,
-			"userID": self.id,
-			"userLat": self.location.latitude,
-			"userLong": self.location.longitude,
-			#"version": self.version,
-		}
-		return self.get_yak_list("yaks", params)
+    def peekLoc(self, location):
+        params = {
+                "lat": location.latitude,
+                "long": location.longitude,
+                "userID": self.id,
+                "userLat": self.location.latitude,
+                "userLong": self.location.longitude,
+                #"version": self.version,
+        }
+        return self.get_yak_list("yaks", params)
+

@@ -6,6 +6,7 @@ def compile(filename, args):
 	recP = -1
 	i = 0
 	while i < len(code):
+
 		if code[i].isalnum() or code[i] == '%' or code[i] == "$":
 			if code[i] == '%':
 				if i > 0 and code[i-1] == '\\':
@@ -14,7 +15,7 @@ def compile(filename, args):
 				elif recP == -1:
 					recP = i
 				else:
-					code = code[:recP]+open("static/"+code[recP+1:i],'r').read()+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
+					code = code[:recP]+"\n<script>\n"+open("static/"+code[recP+1:i],'r').read()+";\n</script>\n"+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
 					i = recP
 					recP = -1
 			elif code[i] == '$':
@@ -22,11 +23,16 @@ def compile(filename, args):
 					code = code[:i-1]+code[i:]
 					i += 1
 					continue
+				elif code[i:i+3] == "$$$":
+					code = code[:i]+"var argsList = "+str(args).replace(": u\'",": \'")+"\n"+code[i+3:]
+					i += len(str(args))+len("\"var argsDict = \"")
 				elif recD == -1:
 					recD = i
 				else:
+					increase = recD+len(str((eval(code[recD+1:i]))))
 					code = code[:recD]+str((eval(code[recD+1:i])))+code[i+1:]#args[(code[rec+1:i])])+code[i+1:]
-					i = recD
+					i = increase
 					recD = -1
+					# add something to check for ' in the text of yaks and replace with \'. same for ""
 		i+=1
 	return code
