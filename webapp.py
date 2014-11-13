@@ -49,7 +49,7 @@ class hello:
         #return a list of all the comments from a yak in a format that the javascript can use
         def loadComments(self,postID):
             comments = []
-            commentsRaw = self.yakker.get_comments(postID[1:])
+            commentsRaw = self.yakker.get_comments(postID)
             for i in range(len(commentsRaw)):
                 comments.append(commentsRaw[i].get_comment())
             return comments
