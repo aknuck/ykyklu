@@ -15,7 +15,7 @@ class hello:
 
 	def GET(self, name):
                 if name == "index" or name == "index.html" or name == "main" or name == "main.html" or not name:
-                        data = {"yaks":self.loadYaks(6),"numberOfYaks":6}
+                        data = {"yaks":self.loadYaks(8),"numberOfYaks":8}
                         for i in range(len(data["yaks"])):
                             data["yaks"][i]["comments"] = self.loadComments(data["yaks"][i]["id"])
                             data["yaks"][i]["numberOfComments"] = len(data["yaks"][i]["comments"])
@@ -24,6 +24,7 @@ class hello:
                 else:
                         return compile("blank.html",{})
 
+        #return a list of yaks of length equal to the parameter 'num'
         def loadYaks(self,num):
                 loadedYaks = self.yakker.get_yaks()
                 yaks = []
@@ -32,6 +33,7 @@ class hello:
                         yaks[i]["time"] = self.difTime(loadedYaks[i])
                 return yaks
 
+        #return a list of all the comments from a yak in a format that the javascript can use
         def loadComments(self,postID):
             comments = []
             commentsRaw = self.yakker.get_comments(postID[1:])
@@ -39,12 +41,15 @@ class hello:
                 comments.append(commentsRaw[i].get_comment())
             return comments
 
+        #Returns the difference in time from the current time, so the age of the yak can be returned in a string to be printed out
         def difTime(self,y):
             yakTime = y.time
             yakSec = 60*60*int(yakTime[11:13])+60*int(yakTime[14:16])+int(yakTime[17:19])
             curTime = time.strftime("%Y-%m-%d %H:%M:%S")
             curSec = 60*60*int(curTime[11:13])+60*int(curTime[14:16])+int(curTime[17:19])
-            if (curSec-yakSec) < 60:
+            if (curSec-yakSec) < 15:
+                t = "just now"
+            elif (curSec-yakSec) < 60:
                 t = str(curSec-yakSec)+" sec ago"
             elif (curSec-yakSec) < 60*60:
                 t = str((curSec-yakSec)/60)+" min ago"
