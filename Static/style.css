@@ -7,10 +7,41 @@ header {
 }
 
 h1 {
-  font-family: Exo, Arial, san-serif;
+
   margin-bottom: 0.5em;
   color: #FFF;
   text-align: center;
+}
+
+h1, h2 {
+  font-family: Exo, Arial, san-serif;
+}
+
+#top-icon {
+  float: right;
+  background: rgba(255,255,255,1);
+  color: #572D14;
+  padding: .25em .5em;
+  margin: .5em;
+  font-weight: bold;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+
+#top-icon:hover {
+  text-decoration: none !important;
+  color: #FFF;
+  background: rgba(127, 92, 79, .7);
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 nav ul {
@@ -26,7 +57,15 @@ nav li {
   color: white;
   margin-bottom: 1.5em;
   text-transform: uppercase;
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
 
+#faq p a {
+  background: #FFF;
 }
 
 nav li:first-child {
@@ -42,6 +81,11 @@ nav li:last-child {
 
 nav li:hover {
   background: rgba(255, 255, 255, .25);
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 
 nav a {

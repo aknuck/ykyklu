@@ -1,10 +1,73 @@
-<h1>FAQ</h1>
-<h2>What is Hawk Yak</h2>
-It is a browser version of the Lehigh Yak feed, viewable only when connected to the Lehigh wifi.
-<br>
-<h2>What can it do?</h2>
-It is currently view only, but we are planning on adding the ability to post yaks and comments. We are also planning to allow you filter all yaks with certain hashtags, as well as add images to yaks.
-<br>
-<h2>Who made this?</h2>
-This was created by roommates <a href="http://www.github.com/aknuck">Adam Knuckey</a href> and <a href="http://www.github.com/deepsheth">Deep Sheth</a href>  in November of 2014. The frontend was written by Deep in HTML, CSS, and Javascript. The backend was written by Adam in Python using the web.py web framework. The design was a collaboration from both of us.
-<br>
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Hawk Yak</title>
+  <meta name="description" content="Yik Yak feed of Lehigh University">
+  <meta name="author" content="Deep Sheth & Adam Knuckey">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Cabin:500|Exo:800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./static/cobblestone.css">
+  <link rel="stylesheet" href="./static/style.css">
+
+  <!-- JS
+  ================================================== -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="./Static/normal_script.js"></script>
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="icon" href="" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Analytics
+  ================================================== -->
+</head>
+
+<body id="faq">
+  <a id="top-icon" href="index.html">Yak Feed</a>
+  <header id="top">
+    <div class="container">
+      <div class="row">
+        <h1><big><big>FAQ</big></big></h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2>What is Hawk Yak?</h2>
+      <p>It is a browser version of the Lehigh Yak feed, viewable only when connected to the Lehigh wifi network. Also, Javascript must be enabled in your browser.</p>
+      <hr>
+      <h2>What can it do?</h2>
+      <p>It is currently view only, but we are planning on adding the ability to post yaks and comments. We are also planning to allow you filter all yaks with certain hashtags, as well as add images to yaks.</p>
+      <hr>
+
+
+
+      <h2>Who made this?</h2>
+      <p>Woah! Everything about Yik Yak is supposed to be anonymous... but we'll let you know who we are. We're two roommates, <a href="http://www.github.com/aknuck">Adam Knuckey</a> and <a href="http://www.github.com/deepsheth">Deep Sheth</a>, who started this project in November of 2014. The frontend is written by Deep in HTML, CSS, and Javascript with the framework <a href="https://github.com/shetharp/CobbleStone">CobbleStone</a>. The backend is written by Adam in Python using the <a href="http://webpy.org/">web.py</a> web framework. The design is a collaboration from both of us.</p>
+      <hr>
+      <form>
+      <label for="comment"><strong>Give us feedback:</strong></label>
+      <div class="row">
+          <textarea placeholder="Provide us suggestions..." name="comment" class="col-8" val="" id="text-feedback"></textarea>
+        <a id="url" href="http://www.google.com" target="_blank" class="btn btn-primary">Send Message</a>
+
+      </div>
+      </form>
+
+    </div>
+  </section>
+
+
+</body>
+</html>

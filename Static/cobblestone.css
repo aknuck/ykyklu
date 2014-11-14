@@ -28,7 +28,7 @@
     */
 
     html {
-      font-family: sans-serif; /* 1 */
+      font-family: cabin, sans-serif; /* 1 */
       -ms-text-size-adjust: 100%; /* 2 */
       -webkit-text-size-adjust: 100%; /* 2 */
     }
@@ -475,12 +475,12 @@
 /* Base Link Styles
 ================================================== */
     a {
-        color: #E5A68F;
+        color: #A07968;
         text-decoration: none;
     }
 
     a:hover {
-        color: #B58371;
+        color: #572D14;
         text-decoration: underline;
     }
 
@@ -1385,14 +1385,14 @@
 
     .btn-primary {
         color: #fff;
-        background: #A63B32;
+        background: #572D14;
     }
 
     .btn-primary:hover,
     .btn-primary:focus,
     .btn-primary:active {
         color: #fff;
-        background: #802D27;;
+        background: #30180A;
     }
 
 
