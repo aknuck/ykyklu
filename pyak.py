@@ -33,7 +33,7 @@ class PeekLocation:
         lon = raw['longitude']
         d = raw['delta']
         self.location = Location(lat, lon, d)
-        
+
 class Comment:
     def __init__(self, raw, message_id, client):
         self.client = client
@@ -99,7 +99,7 @@ class Yak:
         self.type = raw["type"]
         self.liked = int(raw["liked"])
         self.reyaked = raw["reyaked"]
-        
+
         #Yaks don't always have a handle
         try:
             self.handle = raw["handle"]
@@ -159,27 +159,27 @@ class Yakker:
     user_agent = "Yik Yak/2.1.0.23 CFNetwork/711.1.12 Darwin/14.0.0"
     #user_agent = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B350 Safari/8536.25"
     #version = "2.1.002"
-	
+
     def __init__(self, user_id=None, location=None, force_register=False):
         if location is None:
             location = Location('0', '0')
         self.update_location(location)
-        
+
         if user_id is None:
             user_id = self.gen_id()
             self.register_id_new(user_id)
         elif force_register:
             self.register_id_new(user_id)
-        
+
         self.id = user_id
-        
+
         self.handle = None
 
         #self.update_stats()
-        
+
     def gen_id(self):
         return md5(os.urandom(128)).hexdigest().upper()
-        
+
     def register_id_new(self, id):
         params = {
             "userID": id,
@@ -189,13 +189,13 @@ class Yakker:
         }
         result = self.get("registerUser", params)
         return result
-        
+
     def sign_request(self, page, params):
         key = "F7CAFA2F-FE67-4E03-A090-AC7FFF010729"
-    
+
         #The salt is just the current time in seconds since epoch
         salt = str(int(time.time()))
-        
+
         #The message to be signed is essentially the request, with parameters sorted
         msg = "/api/" + page
         sorted_params = params.keys()
@@ -207,53 +207,53 @@ class Yakker:
         #Chop off last "&"
         if len(params) > 0:
             msg = msg[:-1]
-        
+
         #the salt is just appended directly
         msg += salt
-        
+
         #Calculate the signature
         h = hmac.new(key, msg, sha1)
         hash = base64.b64encode(h.digest())
-        
+
         return hash, salt
-		
+
     def sign_request2(self, page, params):
         key = "F7CAFA2F-FE67-4E03-A090-AC7FFF010729"
-    
+
         #The salt is just the current time in seconds since epoch
         salt = str(int(time.time()))
-        
+
         #The message to be signed is essentially the request, with parameters sorted
         msg = "/api/" + page
-		
+
         #the salt is just appended directly
         msg += salt
-        
+
         #Calculate the signature
         h = hmac.new(key, msg, sha1)
         hash = base64.b64encode(h.digest())
-        
+
         return hash, salt
-        
-        
+
+
 
     def get(self, page, params):
         url = self.base_url + page
-        
+
         hash, salt = self.sign_request(page, params)
         params['hash'] = hash
         params['salt'] = salt
-        
+
         headers = {
             "User-Agent": self.user_agent,
             "Accept-Encoding": "gzip",
         }
-        
+
         return requests.get(url, params=params, headers=headers)
 
     def post(self, page, params):
         url = self.base_url + page
-        
+
         hash, salt = self.sign_request2(page, params)
         getparams = {'hash': hash, 'salt': salt}
 
@@ -261,12 +261,12 @@ class Yakker:
             "User-Agent": self.user_agent,
             "Accept-Encoding": "gzip",
         }
-        
+
         return requests.post(url, data=params, params=getparams, headers=headers)
 
     def get_yak_list(self, page, params):
         return self.parse_yaks(self.get(page, params).text)
-        
+
     def parse_yaks(self, text):
         try:
             raw_yaks = json.loads(text)["messages"]
@@ -375,7 +375,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get("deleteComment", params)
-        
+
     def get_greatest(self):
         params = {
             "userID": self.id,
@@ -384,7 +384,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getGreatest", params)
-        
+
     def get_my_tops(self):
         params = {
             "userID": self.id,
@@ -393,7 +393,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getMyTops", params)
-        
+
     def get_recent_replied(self):
         params = {
             "userID": self.id,
@@ -402,10 +402,10 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getMyRecentReplies", params)
-        
+
     def update_location(self, location):
         self.location = location
-        
+
     def get_my_recent_yaks(self):
         params = {
             "userID": self.id,
@@ -414,7 +414,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getMyRecentYaks", params)
-        
+
     def get_area_tops(self):
         params = {
             "userID": self.id,
@@ -423,7 +423,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getAreaTops", params)
-    
+
     def get_yaks(self):
         params = {
             "userID": self.id,
@@ -432,7 +432,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getMessages", params)
-    
+
     def post_yak(self, message, showloc=False, handle=False):
         params = {
             "userID": self.id,
@@ -455,9 +455,9 @@ class Yakker:
             "long": self.location.longitude,
 			#"version": self.version,
         }
-            
+
         return self.parse_comments(self.get("getComments", params).text, message_id)
-        
+
     def post_comment(self, message_id, comment):
         params = {
             "userID": self.id,
@@ -504,7 +504,7 @@ class Yakker:
         }
         data = self.get("getMessages", params).json()
         return int(data['yakarma'])
-    
+
     def peek(self, peek_id):
         if isinstance(peek_id, PeekLocation):
             peek_id = peek_id.id
@@ -517,7 +517,7 @@ class Yakker:
 			#"version": self.version,
         }
         return self.get_yak_list("getPeekMessages", params)
-		
+
     def peekLoc(self, location):
         params = {
                 "lat": location.latitude,
@@ -528,4 +528,3 @@ class Yakker:
                 #"version": self.version,
         }
         return self.get_yak_list("yaks", params)
-

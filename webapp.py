@@ -1,7 +1,7 @@
 import web, time
 from pyak import *
 from compile import *
-        
+
 urls = (
     '/(.*)', 'hello'
 )
@@ -69,7 +69,6 @@ class hello:
             else:
                 t = str(((curSec-yakSec)/60)/60)+" hrs ago"
             return t
-    		
 
 if __name__ == "__main__":
         app.run()

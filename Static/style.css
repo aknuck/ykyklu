@@ -7,22 +7,24 @@ header {
 }
 
 h1 {
+  font-family: Exo, Arial, san-serif;
   margin-bottom: 0.5em;
   color: #FFF;
   text-align: center;
 }
 
 nav ul {
+  font-family: Cabin, Arial, san-serif;
   font-size: 1.25em;
   text-align: center;
 }
 
 nav li {
-  padding: .5em 1.5em !important;
+  padding: .75em 0em !important;
   font-weight: bold;
   background: rgba(127, 92, 79, .7);
   color: white;
-  margin: .5em auto 1.5em;
+  margin-bottom: 1.5em;
   text-transform: uppercase;
 
 }
@@ -39,7 +41,11 @@ nav li:last-child {
 }
 
 nav li:hover {
-  background: rgba(255, 255, 255, .20);
+  background: rgba(255, 255, 255, .25);
+}
+
+nav a {
+  padding: 0.5em 1.5em;
 }
 
 nav a, nav a:hover {
@@ -48,12 +54,25 @@ nav a, nav a:hover {
 }
 
 #posts .row {
+  font-family: Cabin, Arial, san-serif;
   border-bottom: 1px solid rgba(200, 200, 200, 1);
-
+  margin-bottom: 1em;
+  padding-bottom: 1.25em;
 }
 
 #posts .panel {
   margin-bottom: 0;
+  box-shadow: none;
+  min-height: 6em;
+}
+
+#posts .panel-body {
+  font-size: 1.25em;
+}
+
+#posts .panel-heading {
+  font-family: exo, cabin, arial, san-serif;
+  background: none;
 }
 
 .time {
@@ -65,16 +84,18 @@ nav a, nav a:hover {
 
 .comment-num {
   text-align: center;
-  margin-top: .95em;
+  margin-top: .75em;
   padding: .25em .75em 1.5em .75em;
-  background: rgba(87, 45, 20, .85);
+  background: #6D4A34;
   font-weight: bold;
+  font-size: 1.35em;
+  font-family: Exo, Arial, san-serif;
   color: #FFF;
   width: 3em;
   height: 1.5em;
-  font-size: 1.35em;
   box-shadow: none;
-  border-radius: 10px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 .comment-num:hover, .comment-num:focus {
@@ -87,37 +108,18 @@ nav a, nav a:hover {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
   margin-left: 2.2em;
-  margin-top: 0.02em;
-	border-top: 10px solid rgba(87, 45, 20, .85);
+  margin-top: -1px;
+	border-top: 10px solid #6D4A34;
 }
 
 .votes {
+  font-family: Exo, Arial, san-serif;
   text-align: center;
   font-size: 1.4em;
-
-
 }
 
 .votes a {
     display: block;
     color: inherit;
     text-decoration: none;
-}
-
-#posts .row {
-  margin-bottom: 1.5em;
-  padding-bottom: 1em;
-}
-
-#posts .panel-body {
-  font-size: 1.25em;
-}
-
-#posts .panel {
-  box-shadow: none;
-  min-height: 6em;
-}
-
-#posts .panel-heading {
-  background: none;
 }
