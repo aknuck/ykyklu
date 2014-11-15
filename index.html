@@ -41,7 +41,7 @@
 </head>
 <body>
 
-<a id="top-icon" href="./faq.html">FAQ</a>
+<a id="top-icon" href="./faq.php">FAQ</a>
 <header id="top">
   <div class="container">
     <div class="row">
@@ -51,17 +51,20 @@
     <nav>
 
       <ul class="inline">
-      <li><a href="#">New</a></li><li><a href="#">Refresh</a></li><li><a href="#">Hot</a></li>
+      <li class="active"><a href="#">New</a></li><li><a href="" id="refresh" ><img src="./static/images/refresh.png"/></a></li><li><a href="#">Hot</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div id="posts" class="container section">
-<div class="row">
+<div class="row faded-out">
 
-  <div class="col-2">
-    <div class="time"></div>
+  <div class="sm-col-2">
+
+      <img id="clock" src="./static/images/clock.png"/>
+      <div class="time"></div>
+
     <button class="comment-num">
 
     </button>
@@ -69,7 +72,7 @@
     </div>
   </div>
 
-  <div class="panel col-8">
+  <div class="panel sm-col-8">
     <div class="panel-heading">
       <h4 class="panel-title"></h4>
     </div>
@@ -90,6 +93,12 @@
   </div>
 </div>
 </div>
+
+<footer>
+  <p>
+    <a class="btn btn-small btn-primary btn-block pull-center col-2" href="#top">Climb back to <strong>TOP</strong>.</a>
+  </p>
+</footer>
 
 %script.js%
 

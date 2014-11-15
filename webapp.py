@@ -25,8 +25,8 @@ class hello:
                             data["yaksHot"][i]["numberOfComments"] = len(data["yaksHot"][i]["comments"])
 
                         return compile("index.html",data)
-                elif name == "faq.html" or name == "faq":
-                        return compile("faq.html",{})
+                elif name == "faq.php" or name == "faq":
+                        return compile("faq.php",{})
                 else:
                         return compile("blank.html",{})
 
