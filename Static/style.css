@@ -6,6 +6,15 @@ header {
   background: #572D14;
 }
 
+::selection {
+  background: #81624F;
+  color: #FFF; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #81624F;
+  color: #FFF; /* Gecko Browsers */
+}
+
 h1 {
 
   margin-bottom: 0.5em;
@@ -99,21 +108,18 @@ nav li:hover {
   transition: all 100ms ease-in-out;
 }
 
-nav li:active {
-  background: rgba(255, 255, 255, .80);
+nav .active:hover, nav .active a:hover {
+  background: #FFF;
   color: #572D14;
 }
 
-nav li a:active {
-    color: #572D14;
-}
-
-nav a {
-  padding: 0.8em 1.5em;
+nav li:active, nav li a:active {
+  background: #FFF;
+  color: #572D14;
 }
 
 nav .active {
-  background: rgba(255, 255, 255, .80);
+  background: rgba(255, 255, 255, .90);
 }
 
 nav .active a {
@@ -121,6 +127,7 @@ nav .active a {
 }
 
 nav a, nav a:hover {
+  padding: 0.85em 1.5em;
   color: #FFF;
   text-decoration: none;
 }
@@ -194,6 +201,7 @@ nav a, nav a:hover {
   font-family: Exo, Arial, san-serif;
   text-align: center;
   font-size: 1.4em;
+  float: right;
 }
 
 .votes a {
