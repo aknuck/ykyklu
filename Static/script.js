@@ -100,13 +100,4 @@
     createRows();
     loadHotYaks();
   });
-
-
-
-
-
-
-
-
-
 });
