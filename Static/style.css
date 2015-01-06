@@ -6,17 +6,17 @@ header {
   background: #572D14;
 }
 
-::selection {
-  background: #81624F;
-  color: #FFF; /* WebKit/Blink Browsers */
-}
 ::-moz-selection {
   background: #81624F;
-  color: #FFF; /* Gecko Browsers */
+  color: #FFF /* WebKit/Blink Browsers */
+}
+
+::selection {
+  background: #81624F;
+  color: #FFF /* WebKit/Blink Browsers */
 }
 
 h1 {
-
   margin-bottom: 0.5em;
   color: #FFF;
   text-align: center;
@@ -33,12 +33,8 @@ h1, h2 {
   padding: .25em .5em;
   margin: .5em;
   font-weight: bold;
-  -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   -webkit-transition: all 100ms ease-in-out;
-  -moz-transition: all 100ms ease-in-out;
-  -ms-transition: all 100ms ease-in-out;
-  -o-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
 }
 
@@ -47,9 +43,6 @@ h1, h2 {
   color: #FFF;
   background: rgba(127, 92, 79, .7);
   -webkit-transition: all 150ms ease-in-out;
-  -moz-transition: all 150ms ease-in-out;
-  -ms-transition: all 150ms ease-in-out;
-  -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 
@@ -67,9 +60,6 @@ nav li {
   margin-bottom: 1.5em;
   text-transform: uppercase;
   -webkit-transition: all 150ms ease-in-out;
-  -moz-transition: all 150ms ease-in-out;
-  -ms-transition: all 150ms ease-in-out;
-  -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 
@@ -83,13 +73,11 @@ nav li {
 
 nav li:first-child {
   border-left: 3px solid rgba(255, 255, 255, .80);
-  -webkit-border-radius: 8px 0 0 8px;
   border-radius: 8px 0 0 8px;
 }
 
 nav li:last-child {
   border-right: 3px solid rgba(255, 255, 255, .80);
-  -webkit-border-radius: 0 8px 8px 0;
   border-radius: 0 8px 8px 0;
 
 }
@@ -102,9 +90,6 @@ nav li {
 nav li:hover {
   background: rgba(255, 255, 255, .25);
   -webkit-transition: all 100ms ease-in-out;
-  -moz-transition: all 100ms ease-in-out;
-  -ms-transition: all 100ms ease-in-out;
-  -o-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
 }
 
@@ -179,7 +164,6 @@ nav a, nav a:hover {
   width: 3em;
   height: 1.5em;
   box-shadow: none;
-  -webkit-border-radius: 8px 8px 8px 8px;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -201,16 +185,38 @@ nav a, nav a:hover {
   font-family: Exo, Arial, san-serif;
   text-align: center;
   font-size: 1.4em;
-  float: right;
 }
 
 .votes a {
     display: block;
     color: inherit;
     text-decoration: none;
+    margin-left: -0.175em;
 }
 
+#posts .comments {
+    color: #81624F;
+    font-size: .85em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 1px dashed #C8C8C8;
+}
 
+.comments + .comments {
+    padding-top: 1em;
+}
+.comments-body {
+    padding-left: .5em;
+    min-width: 42%;
+}
+
+.comments .yak-score {
+    font-family: Exo,Arial,san-serif;
+}
+
+.comments p a:hover {
+    text-decoration: none;
+}
 
 /* Normal Display Grid */
 @media only screen and (max-width: 35em) {
@@ -247,7 +253,16 @@ nav a, nav a:hover {
 
 /* Intermediate Display Grid (Not a major break-point by default) */
 @media only screen and (min-width: 45em) {
-
+    .comments p {
+        font-size: 1.25em;
+    }
+    .comments-body {
+        margin-left: 5%;
+    }
+    
+    .votes a {
+        margin-left: 0;
+    }
 }
 
 /* Large Display Grid */
