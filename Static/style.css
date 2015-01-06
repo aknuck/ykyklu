@@ -218,7 +218,7 @@ nav a, nav a:hover {
     text-decoration: none;
 }
 
-/* Normal Display Grid */
+/* Normal Display Grid - IMPORTANT - MAX-WIDTH */
 @media only screen and (max-width: 35em) {
     nav ul li a {
       padding: .75em .75em !important;
@@ -262,6 +262,9 @@ nav a, nav a:hover {
     
     .votes a {
         margin-left: 0;
+    }
+    .comments a {
+        padding: 0 .5em;
     }
 }
 
