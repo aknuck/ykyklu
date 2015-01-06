@@ -7,13 +7,13 @@ $( document ).ready(function() {
   //   $('form a').attr('href', 'mailto:suggestions@hawkyak.com?&subject=[Lehigh%20Yak]%20Feedback&body='+emailBody);
   // });
 
-
-
-  //Not completely functional
-  setTimeout(function() {
     $('.votes').click(function() {
       $(this).css("color", "#572D14");
     });
-  },300);
 
+    $('#posts').on('click', '.comment-num', function() {
+        console.log((this).closest('.individual-post')); 
+        $(this).closest('.individual-post').children('.comments').slideToggle();
+    });
+   console.log("opened");
 });

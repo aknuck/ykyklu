@@ -9,14 +9,14 @@
     function createRows() {
         //Creates rows but will invisible
         for(n=0; n<(argsList["numberOfYaks"]); n++) {
-            \$('#posts-begin').after('<div class="row num'+((argsList["numberOfYaks"])-n)+'"><div class="sm-col-2"><img id="clock" src="./static/images/clock.png"/><div class="time"></div><button class="comment-num"></button><div class="arrow-down"></div></div><div class="panel sm-col-8"><div class="panel-heading"><h4 class="panel-title"></h4></div><div class="panel-body"></div></div><div class="votes"><a href="#" class="up-arrow">&#9650;</a><div class="yak-score"></div><a href="#" class="down-arrow">&#9660;</a></div></div>');
-            \$('#posts .row').fadeOut("fast");
+            \$('#posts-begin').after('<div class="individual-post"><div class="row num'+((argsList["numberOfYaks"])-n)+'"><div class="sm-col-2"><img id="clock" src="./static/images/clock.png"/><div class="time"></div><button class="comment-num"></button><div class="arrow-down"></div></div><div class="panel sm-col-8"><div class="panel-heading"><h4 class="panel-title"></h4></div><div class="panel-body"></div></div><div class="votes"><a href="#" class="up-arrow">&#9650;</a><div class="yak-score"></div><a href="#" class="down-arrow">&#9660;</a></div></div></div>');
+            \$('#posts .individual-post').fadeOut("fast");
         }
 
         //Slide in from right
         var n=1;
         setInterval(function() { 
-            \$('#posts .row:nth-of-type('+n+')').show("drop", 350);  
+            \$('#posts .individual-post:nth-of-type('+n+')').show("drop", 350);  
              n++;
         }, 150);   
     }
@@ -24,7 +24,7 @@
     function loadYaks(){
         //Adds content to each post
         for (i=0; i<argsList["numberOfYaks"]; i++){
-            //post = \$("#posts .row:eq(" + i + ")"); //adding space before eq only selects panel
+            //post = \$("#posts .individual-post:eq(" + i + ")"); //adding space before eq only selects panel
             // selectors
             commentBubble = \$("#posts .comment-num:eq(" + i + ")");
             commentArrow = \$("#posts .arrow-down:eq(" + i + ")");
@@ -87,7 +87,7 @@
     //////////////////////////
 
     \$('#new').click(function(){
-        \$('#posts .row').remove(); //completely removes all posts
+        \$('#posts .individual-post').remove(); //completely removes all posts
         \$('nav li:first').addClass('active'); 
         \$('nav li:last').removeClass('active');
         createRows();
@@ -95,10 +95,11 @@
     });
 
     \$('#hot').click(function(){
-        \$('#posts .row').remove();
+        \$('#posts .individual-post').remove();
         \$('nav li:first').removeClass('active');
         \$('nav li:last').addClass('active');
         createRows();
         loadHotYaks();
     });
+    
 });
