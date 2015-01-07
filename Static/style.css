@@ -208,6 +208,7 @@ nav a, nav a:hover {
 .comments-body {
     padding-left: .5em;
     min-width: 42%;
+    font-size: 1.25em;
 }
 
 .comments .yak-score {

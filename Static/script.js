@@ -26,7 +26,10 @@
         for (n=0; n<argsList["numberOfYaks"]; n++){
             var numComments = argsList["yaks"][n]["numberOfComments"];
             for(i=0; i<numComments; i++) {
-                 \$('.individual-post:eq(' + n + ')').append('<div class="comments row"><div class="col-2 sm-col-4 time">UNKNOWN</div><div class="lg-col-6 col-7 sm-col-5 comments-body"><p><span class="label label-alt"> ERROR FETCHING COMMENT </span><br>If problem persists, please<a href="./faq.php#form-contact">contact us.</a></p></div><p class="col-2 sm-col-2"><a href="#" class="up-arrow">▲</a><span class="yak-score text-center">ERROR</span><a href="#" class="down-arrow">▼</a></p></div>');
+                \$('.individual-post:eq(' + n + ')').append('<div class="comments row"><div class="col-2 sm-col-4 time">UNKNOWN</div><div class="lg-col-6 col-7 sm-col-5 comments-body"><p><span class="label label-alt"> ERROR FETCHING COMMENT </span><br>If problem persists, please<a href="./faq.php#form-contact">contact us.</a></p></div><p class="col-2 sm-col-2"><a href="#" class="up-arrow">▲</a><span class="yak-score text-center">ERROR</span><a href="#" class="down-arrow">▼</a></p></div>');
+                \$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.time').text("TIME WORKS");
+                \$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.comments-body').text("Comments work but not sure what code is used to get them.");
+                \$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.yak-score').text("SCORE");
             }
         }
         
@@ -103,6 +106,7 @@
         \$('nav li:last').removeClass('active');
         createRows();
         loadYaks();
+        addComments();
     });
 
     \$('#hot').click(function(){
@@ -111,6 +115,7 @@
         \$('nav li:last').addClass('active');
         createRows();
         loadHotYaks();
+        addComments();
     });
     
 });
