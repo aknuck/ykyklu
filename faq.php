@@ -59,7 +59,7 @@
 
 
       <h2>Have any suggestions? <small>Give us feedback!</small></h2>
-      <form method="post" action="result.php">
+      <form method="post" action="result.php" id="form-contact">
         <p>
           <label for="email">Email (optional, but allows us to reply back)</label>
           <div class="row">

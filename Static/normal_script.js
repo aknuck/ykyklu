@@ -15,5 +15,6 @@ $( document ).ready(function() {
         console.log((this).closest('.individual-post')); 
         $(this).closest('.individual-post').children('.comments').slideToggle();
     });
-   console.log("opened");
+   
+    
 });
