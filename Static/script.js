@@ -1,20 +1,22 @@
 \$( document ).ready(function() {
     $$$
     var post, yakHandle, yakText, yakScore, commentBubble, commentArrow, yakTime, totalYaks;
-
+    
+    \$('footer').fadeOut(); //hides top button
     createRows();
     loadYaks();
     addComments();
-
+    \$('footer').fadeIn("slow");
+    
     //Generates  html posts
     function createRows() {
         //Creates rows but will invisible
         for(n=0; n<(argsList["numberOfYaks"]); n++) {
-            \$('#posts-begin').after('    <div class="individual-post"><div class="row yak-top"><div class="sm-col-3 col-2"><img id="clock" src="./static/images/clock.png"><div class="time">UNKNOWN</div><button class="comment-num">ERR</button><div class="arrow-down"></div></div><div class="panel sm-col-7 col-8"><div class="panel-body"><span class="label label-primary">Error fetching yak.</span><br><br>Please refresh the page. If this problem continues to exist, please <a href="./faq.php#form-contact">contact us.</a></div></div><div class="votes sm-col-1 col-2"><a href="#" class="up-arrow">▲</a><div class="yak-score text-center">ERROR</div><a href="#" class="down-arrow">▼</a></div></div></div>');
+            \$('#posts-begin').after('<div class="individual-post"><div class="row yak-top"><div class="sm-col-2 col-2"><img id="clock" src="./static/images/clock.png"><div class="time">UNKNOWN</div><button class="comment-num">ERR</button><div class="arrow-down"></div></div><div class="sm-col-8 col-8"><div class="panel-body"><span class="label label-primary">Error fetching yak.</span><br><br>Please refresh the page. If this problem continues to exist, please <a href="./faq.php#form-contact">contact us.</a></div></div><div class="votes sm-col-2 col-2"><a class="up-arrow">▲</a><div class="yak-score text-center">ERROR</div><a class="down-arrow">▼</a></div></div></div>');
             \$('#posts .individual-post').fadeOut("fast");
         }
 
-        //Slide in from right
+        //Rows become visible by sliding in to the right
         var n=1;
         setInterval(function() { 
             \$('#posts .individual-post:nth-of-type('+n+')').show("drop", 350);  
@@ -22,18 +24,19 @@
         }, 150);   
     }
      
+    // Generates comment rows and adds text
     function addComments() {
         for (n=0; n<argsList["numberOfYaks"]; n++){
             var numComments = argsList["yaks"][n]["numberOfComments"];
             for(i=0; i<numComments; i++) {
-                \$('.individual-post:eq(' + n + ')').append('<div class="comments row"><div class="col-2 sm-col-4 time">UNKNOWN TIME</div><div class="lg-col-6 col-7 sm-col-5 comments-body"><p><span class="label label-alt"> ERROR FETCHING COMMENT </span><br>If problem persists, please<a href="./faq.php#form-contact">contact us.</a></p></div><p class="col-2 sm-col-2"><a href="#" class="up-arrow">▲</a><span class="yak-score text-center">ERROR</span><a href="#" class="down-arrow">▼</a></p></div>');
+                \$('.individual-post:eq(' + n + ')').append('<div class="comments row"><div class="lg-col-8 sm-col-8 comments-body"><p><span class="label label-alt"> ERROR FETCHING COMMENT </span><br>If problem persists, please<a href="./faq.php#form-contact">contact us.</a></p></div><p class="col-2 sm-col-2 text-center"><a class="up-arrow">▲</a><span class="yak-score">ERROR</span><a class="down-arrow">▼</a></p></div>');
                 //\$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.time').text("TIME WORKS");
                 \$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.comments-body').html(argsList["yaks"][n]["comments"][i].text);
                 \$('.individual-post:eq(' + n + ')').children('.comments:eq(' + i +')').find('.yak-score').text(argsList["yaks"][n]["comments"][i].likes);
                 // ["yaks"][n]["comments"][i] is an object with text and likes
             }
         }
-        
+        \$('.comments').fadeOut();
     }
             
     function loadYaks(){

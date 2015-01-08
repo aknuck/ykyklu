@@ -12,7 +12,6 @@ $( document ).ready(function() {
     });
 
     $('#posts').on('click', '.comment-num', function() {
-        console.log((this).closest('.individual-post')); 
         $(this).closest('.individual-post').children('.comments').slideToggle();
     });
    

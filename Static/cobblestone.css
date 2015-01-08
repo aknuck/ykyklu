@@ -30,7 +30,7 @@
     html {
       font-family: cabin, sans-serif; /* 1 */
       -ms-text-size-adjust: 100%; /* 2 */
-      -webkit-text-size-adjust: 100%; /* 2 */
+      -webkit-text-size-adjust: 100% /* 2 */
     }
 
     /**
@@ -75,7 +75,7 @@
     progress,
     video {
       display: inline-block; /* 1 */
-      vertical-align: baseline; /* 2 */
+      vertical-align: baseline /* 2 */
     }
 
     /**
@@ -228,7 +228,6 @@
     */
 
     hr {
-      -moz-box-sizing: content-box;
       box-sizing: content-box;
       height: 0;
     }
@@ -275,7 +274,7 @@
     textarea {
       color: inherit; /* 1 */
       font: inherit; /* 2 */
-      margin: 0; /* 3 */
+      margin: 0 /* 3 */
     }
 
     /**
@@ -311,7 +310,7 @@
     input[type='reset'],
     input[type='submit'] {
       -webkit-appearance: button; /* 2 */
-      cursor: pointer; /* 3 */
+      cursor: pointer /* 3 */
     }
 
     /**
@@ -353,7 +352,7 @@
     input[type='checkbox'],
     input[type='radio'] {
       box-sizing: border-box; /* 1 */
-      padding: 0; /* 2 */
+      padding: 0 /* 2 */
     }
 
     /**
@@ -374,9 +373,7 @@
     */
 
     input[type='search'] {
-      -webkit-appearance: textfield; /* 1 */
-      -moz-box-sizing: content-box;
-      -webkit-box-sizing: content-box; /* 2 */
+      -webkit-appearance: textfield; /* 1 */ /* 2 */
       box-sizing: content-box;
     }
 
@@ -408,7 +405,7 @@
 
     legend {
       border: 0; /* 1 */
-      padding: 0; /* 2 */
+      padding: 0 /* 2 */
     }
 
     /**
@@ -453,15 +450,11 @@
 /* Border-box Sizing Method
 ================================================== */
     * {
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
     }
     *:before,
     *:after {
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
     }
 
 /* Base Body Styles
@@ -486,8 +479,8 @@
 
 /* Base Heading Styles
 ================================================== */
-    h1 { font-size: 3em; margin: .35em 0em;}
-    h2 { font-size: 2.5em; margin: .35em 0em; }
+    h1 { font-size: 2.25em; margin: .35em 0em;}
+    h2 { font-size: 2em; margin: .35em 0em; }
     h3 { font-size: 1.75em; margin: .35em 0em; }
     h4 { font-size: 1.50em; margin: .35em 0em; }
     h5 { font-size: 1.35em; margin: .35em 0em; }
@@ -741,7 +734,7 @@
     }
 
     .section-primary {
-        background: #A63B32;
+        background: #7E5D4B;
     }
 
     .container {
@@ -810,7 +803,7 @@
     }
 
     .panel-body {
-       padding: .75rem;
+        padding: 1.25em 0 0 1em;
     }
 
 /* Table Styles
@@ -961,11 +954,13 @@
         overflow: hidden;
         border-radius: .125rem;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+        -webkit-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out;
     }
 
     a > .thumbnail {
         box-shadow: 0 3px 7px 0px rgba(0,0,0,.25), 0 1px 2px 0 rgba(0,0,0,.2);
+        -webkit-transition: all 200ms ease-in;
         transition: all 200ms ease-in;
     }
 
@@ -1098,6 +1093,7 @@
         min-height: 3em;
         border-radius: .125rem;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+        -webkit-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out;
     }
 
@@ -1112,6 +1108,7 @@
         display: block;
         position: relative;
         z-index: 1;
+        -webkit-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out;
     }
 
@@ -1133,6 +1130,8 @@
         text-align: center;
         width: 100%;
         height: 100%;
+        -webkit-transform: scale(.85);
+        -ms-transform: scale(.85);
         transform: scale(.85);
         opacity: 0;
         visibility: hidden;
@@ -1140,11 +1139,14 @@
         top: 0;
         left: 0;
         z-index: 2;
+        -webkit-transition: -webkit-transform 100ms ease-out;
         transition: transform 100ms ease-out;
     }
 
     .gallery li > a:hover > .caption {
         top: 0;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
         transform: scale(1);
         opacity: 1;
         visibility: visible;
@@ -1171,6 +1173,8 @@
         position: relative;
         visibility: visible;
         opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
         transform: scale(1);
         top: 0;
 
@@ -1182,6 +1186,34 @@
         text-align: center;
         color: #777;
         font-weight: bold;
+    }
+
+    @-webkit-keyframes flipInY {
+      0% {
+        -webkit-transform: perspective(400px) rotateY(90deg);
+        -ms-transform: perspective(400px) rotateY(90deg);
+        transform: perspective(400px) rotateY(90deg);
+        opacity: 0;
+      }
+
+      40% {
+        -webkit-transform: perspective(400px) rotateY(-10deg);
+        -ms-transform: perspective(400px) rotateY(-10deg);
+        transform: perspective(400px) rotateY(-10deg);
+      }
+
+      70% {
+        -webkit-transform: perspective(400px) rotateY(10deg);
+        -ms-transform: perspective(400px) rotateY(10deg);
+        transform: perspective(400px) rotateY(10deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(400px) rotateY(0deg);
+        -ms-transform: perspective(400px) rotateY(0deg);
+        transform: perspective(400px) rotateY(0deg);
+        opacity: 1;
+      }
     }
 
     @keyframes flipInY {
@@ -1222,6 +1254,7 @@
 
         .gallery li > a > .caption {
             top: -75%;
+            -webkit-transition: top 100ms ease-out, -webkit-transform 200ms ease-in;
             transition: top 100ms ease-out, transform 200ms ease-in;
         }
 
@@ -1324,6 +1357,7 @@
         border: .125rem solid transparent;
         border-radius: .125rem;
         box-shadow: 0 3px 7px 0px rgba(0,0,0,.25), 0 1px 2px 0 rgba(0,0,0,.2);
+        -webkit-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out;
     }
 
@@ -1341,6 +1375,8 @@
     input[type='submit']:focus,
     input[type='reset']:focus,
     input[type='button']:focus {
+        -webkit-transform: scale(1.075);
+        -ms-transform: scale(1.075);
         transform: scale(1.075);
         box-shadow: 0 7px 20px 3px rgba(0,0,0,.35), 0 1px 2px 0 rgba(0,0,0,.2);
     }
@@ -1414,6 +1450,7 @@
         border: .125rem solid transparent;
         border-radius: .125rem;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+        -webkit-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out;
     }
     input:hover,
@@ -1437,6 +1474,7 @@
         border: none;
         border-radius: 0;
         box-shadow: none;
+        -webkit-transition: none;
         transition: none;
     }
 

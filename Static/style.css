@@ -33,6 +33,7 @@ h1, h2 {
   padding: .25em .5em;
   margin: .5em;
   font-weight: bold;
+  font-size: .65em;
   border-radius: 5px 5px 5px 5px;
   -webkit-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
@@ -47,7 +48,7 @@ h1, h2 {
 }
 
 nav ul {
-  font-family: Cabin, Arial, san-serif;
+  font-family: "Varela Round", Arial, san-serif;
   font-size: 1.25em;
   text-align: center;
 }
@@ -117,13 +118,18 @@ nav a, nav a:hover {
   text-decoration: none;
 }
 
+.individual-post {
+    margin-bottom: 1em;
+}
+
 #posts .row {
-  font-family: Cabin, Arial, san-serif;
-  border-bottom: 1px solid rgba(200, 200, 200, 1);
-  margin-bottom: 1em;
+  font-family: "Varela Round", Arial, san-serif;
   padding-bottom: 1.25em;
 }
 
+.yak-top {
+    border-bottom: 1px solid rgba(200, 200, 200, 1);
+}
 #posts .panel {
   margin-bottom: 0;
   box-shadow: none;
@@ -135,7 +141,7 @@ nav a, nav a:hover {
 }
 
 #posts .panel-heading {
-  font-family: exo, cabin, arial, san-serif;
+  font-family: exo, "Varela Round", arial, san-serif;
   background: none;
 }
 
@@ -144,13 +150,15 @@ nav a, nav a:hover {
 }
 
 .time {
-  font-size: .85em;
+  color: #6B6B6B;
+  font-size: .65em;
   display: inline;
   margin-left: .5em;
+  min-width: 10em;
 }
 
 #clock {
-  max-height: .85em;
+  max-height: .7em;
 }
 .comment-num {
   text-align: center;
@@ -161,7 +169,7 @@ nav a, nav a:hover {
   font-size: 1.35em;
   font-family: Exo, Arial, san-serif;
   color: #FFF;
-  width: 3em;
+
   height: 1.5em;
   box-shadow: none;
   border-radius: 8px 8px 8px 8px;
@@ -172,19 +180,19 @@ nav a, nav a:hover {
 }
 
 .arrow-down {
+    visibility: hidden;
+    margin-left: 1.25em;
 	width: 0;
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-  margin-left: 2.2em;
-  margin-top: -1px;
+    margin-top: -1px;
 	border-top: 10px solid #6D4A34;
 }
 
 .votes {
   font-family: Exo, Arial, san-serif;
   text-align: center;
-  font-size: 1.4em;
 }
 
 .votes a {
@@ -195,24 +203,28 @@ nav a, nav a:hover {
 }
 
 #posts .comments {
-    color: #81624F;
-    font-size: .85em;
+    color: #6D4A34;
+    font-size: .7em;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+.comments-body {
+    margin-left: 17.25%;
+    margin-bottom: 0;
+    padding: .5em 0 .5em 1.25em;
+    min-width: 42%;
+    border-left: 1px solid #A58F78;
     border-bottom: 1px dashed #C8C8C8;
 }
 
-.comments + .comments {
-    padding-top: 1em;
+.comments-body p {
+    margin-bottom: 0;
 }
-.comments-body {
-    padding-left: .5em;
-    min-width: 42%;
-    font-size: 1.25em;
-}
-
-.comments .yak-score {
+.comments > p {
     font-family: Exo,Arial,san-serif;
+    margin-bottom: 0;
+    padding-top: .5em;
 }
 
 .comments p a:hover {
@@ -230,21 +242,17 @@ nav a, nav a:hover {
     }
 
     #posts .panel-body {
-      font-size: 1em;
+      font-size: .85em;
       padding-left: 1.5em;
     }
 
     .time {
-      display: block;
+        display: block;
     }
 
     .comment-num {
       font-size:inherit;
 
-    }
-
-    .arrow-down {
-      margin-left: 1.5em;
     }
 
     #clock {
@@ -254,18 +262,35 @@ nav a, nav a:hover {
 
 /* Intermediate Display Grid (Not a major break-point by default) */
 @media only screen and (min-width: 45em) {
-    .comments p {
-        font-size: 1.25em;
+    h1 {
+        font-size: 3em;
     }
-    .comments-body {
-        margin-left: 5%;
+    #top-icon {
+        font-size: 1em;
     }
-    
+    .comment-num {
+        width: 3em;
+    }
+    .comments p, .comments-body  {
+        font-size: 1.35em;
+    }
+
     .votes a {
         margin-left: 0;
     }
+    
+    .votes {
+        font-size: 1.4em;
+    }
     .comments a {
         padding: 0 .5em;
+    }
+    .time {
+        font-size: .75em;
+    }
+    .arrow-down {
+        visibility: visible;
+        margin-left: 2.25em;
     }
 }
 
