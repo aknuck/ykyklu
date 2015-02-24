@@ -3,8 +3,8 @@ Current State:
 
 ![Screenshot]\(http://i.imgur.com/m77Y9ja.jpg)
 
+![Screenshot]\(http://i.imgur.com/kI5wuea.jpg) 
+
 ![Screenshot]\(http://i.imgur.com/583zBNr.jpg)
 
-![Screenshot]\(http://i.imgur.com/m77Y9ja.jpg) 
-
-![Screenshot]\(http://i.imgur.com/m77Y9ja.jpg) 
+![Screenshot]\(http://i.imgur.com/wLz6YpS.jpg) 
